@@ -1,7 +1,7 @@
 // You & I Creation PWA service worker.
 // v2: network-first pages, stale-while-revalidate assets, and no interception of
 // video / byte-range requests (caching partial 206 responses stalls playback).
-const CACHE_NAME = "you-i-creation-pwa-v2";
+const CACHE_NAME = "you-i-creation-pwa-v3";
 const CORE_ASSETS = [
   "/",
   "/manifest.webmanifest",
