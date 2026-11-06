@@ -85,6 +85,19 @@
       .from('.hero-media img, .hero-media video', { scale: 1.15, duration: 2.4, ease: 'expo.out' }, 0)
       .from('.hero-scrim', { autoAlpha: 0, duration: 1.2 }, 0);
 
+    // Scroll: the hero shrinks into a rounded card as it leaves the screen,
+    // while its content drifts up and fades and the video slowly zooms.
+    var heroEl = document.getElementById('heroSection');
+    if (heroEl) {
+      var shrink = gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: { trigger: heroEl, start: 'top top', end: 'bottom top', scrub: 0.6 }
+      });
+      shrink.to(heroEl, { scale: 0.86, borderRadius: '2rem', duration: 1 }, 0)
+        .to('.hero-content', { yPercent: -18, autoAlpha: 0, duration: 0.7 }, 0)
+        .to('#heroMedia', { scale: 1.12, duration: 1 }, 0);
+    }
+
     var HEAD_SEL = 'h1, h2, .tracking-\\[0\\.3em\\]';
     var CARD_SEL = '.glass-card, .product-card, .cat-btn, .proj-btn';
 

@@ -94,11 +94,12 @@ button:active { transform: none; }
 #tab-home .catalog-link-highlight i { transition: transform .3s var(--ease); }
 #tab-home .catalog-link-highlight:hover i { transform: translateX(3px); }
 
-/* --- Hero: full viewport (minus header), fixed video background --------- */
+/* --- Hero: full viewport (minus header), video background ---------------- */
 .hero {
   position: relative;
-  /* clip-path makes the position:fixed media visible only inside the hero */
-  clip-path: inset(0);
+  overflow: hidden;
+  transform-origin: 50% 0%;
+  will-change: transform;
   height: calc(100vh - 5rem);
   height: calc(100svh - 5rem);
   min-height: 560px;
@@ -110,8 +111,8 @@ button:active { transform: none; }
 @media (min-width: 1024px) {
   .hero { height: calc(100vh - 6rem); height: calc(100svh - 6rem); min-height: 620px; max-height: 1100px; }
 }
-.hero-media { position: fixed; inset: 0; z-index: 0; pointer-events: none; transform: translateZ(0); will-change: transform; contain: strict; }
-/* Off screen: stop compositing the fixed video layer entirely */
+.hero-media { position: absolute; inset: 0; z-index: 0; pointer-events: none; contain: strict; }
+/* Off screen: skip painting the video layer */
 .hero-media.is-offscreen { visibility: hidden; }
 .hero-media img, .hero-media video {
   position: absolute; inset: 0;
