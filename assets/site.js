@@ -20,7 +20,9 @@
     var inView = true;
     var section = document.getElementById('heroSection');
     var sync = function () {
-      if (inView && !document.hidden && section && section.offsetParent !== null) tryPlay();
+      var show = inView && section && section.offsetParent !== null;
+      wrap.classList.toggle('is-offscreen', !show);
+      if (show && !document.hidden) tryPlay();
       else if (!video.paused) video.pause();
     };
     if (section && 'IntersectionObserver' in window) {
@@ -97,27 +99,43 @@
       });
     }
 
+    // One shared IntersectionObserver for card reveals: no per-card ScrollTriggers,
+    // no layout-thrashing refreshes, and nothing left behind when grids re-render.
+    var revealQueue = [];
+    var flushScheduled = false;
+    function flushReveals() {
+      flushScheduled = false;
+      if (!revealQueue.length) return;
+      var batch = revealQueue.splice(0, revealQueue.length);
+      gsap.to(batch, { autoAlpha: 1, y: 0, duration: .8, ease: ease, stagger: { each: .07, amount: Math.min(.5, batch.length * .07) }, overwrite: true, clearProps: 'transform,opacity,visibility' });
+    }
+    var cardIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        cardIO.unobserve(e.target);
+        revealQueue.push(e.target);
+      });
+      if (revealQueue.length && !flushScheduled) { flushScheduled = true; requestAnimationFrame(flushReveals); }
+    }, { rootMargin: '0px 0px -6% 0px' });
+
     function cardsIn(root) {
       var els = Array.prototype.filter.call(root.querySelectorAll(CARD_SEL), function (el) {
         return !el.dataset.anim && el.offsetParent !== null;
       });
       if (!els.length) return;
       els.forEach(function (el) { el.dataset.anim = '1'; });
-      gsap.set(els, { autoAlpha: 0, y: 40 });
-      ST.batch(els, {
-        start: 'top 92%',
-        once: true,
-        onEnter: function (batch) {
-          gsap.to(batch, { autoAlpha: 1, y: 0, duration: .9, ease: ease, stagger: .08, overwrite: true, clearProps: 'transform' });
-        }
-      });
+      gsap.set(els, { autoAlpha: 0, y: 32 });
+      els.forEach(function (el) { cardIO.observe(el); });
     }
+
+    var refreshT;
+    function refreshSoon() { clearTimeout(refreshT); refreshT = setTimeout(function () { ST.refresh(); }, 200); }
 
     function animateScope(root) {
       if (!root || root.offsetParent === null) return;
       headsIn(root);
       cardsIn(root);
-      ST.refresh();
+      refreshSoon();
     }
 
     // Initial visible tab
@@ -137,9 +155,12 @@
     ['homeFeaturedProductsGrid', 'productsCatalogGrid', 'projectsGrid'].forEach(function (id) {
       var grid = document.getElementById(id);
       if (!grid) return;
-      new MutationObserver(function () {
+      new MutationObserver(function (records) {
+        records.forEach(function (r) {
+          r.removedNodes.forEach(function (n) { if (n.nodeType === 1) cardIO.unobserve(n); });
+        });
         clearTimeout(grid._animT);
-        grid._animT = setTimeout(function () { cardsIn(grid); ST.refresh(); }, 30);
+        grid._animT = setTimeout(function () { cardsIn(grid); }, 30);
       }).observe(grid, { childList: true });
     });
 

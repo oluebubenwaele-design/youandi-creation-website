@@ -4,40 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YOU AND I CREATION | Luxury Interior Design & Bespoke Decor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        espresso: {
-                            900: '#100B09',
-                            800: '#181210',
-                            700: '#221B17',
-                            600: '#2C221E',
-                            500: '#3A2E28',
-                        },
-                        champagne: {
-                            100: '#FFF9ED',
-                            200: '#F7E9CE',
-                            300: '#E8D3A7',
-                            400: '#E5C158',
-                            500: '#D4AF37',
-                            600: '#B38F38',
-                            700: '#8C6C26',
-                        },
-                        velvet: '#26201C',
-                        goldborder: '#3D3027'
-                    },
-                    fontFamily: {
-                        serif: ['Cormorant Garamond', 'Cinzel', 'Georgia', 'serif'],
-                        sans: ['Montserrat', 'Plus Jakarta Sans', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="assets/tailwind.css?v=3">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -116,7 +83,7 @@
 #adminProductsList img{object-fit:contain !important;}
 #adminProductsList .admin-product-card{min-width:0;}
 </style>
-    <link rel="stylesheet" href="assets/redesign.css?v=2">
+    <link rel="stylesheet" href="assets/redesign.css?v=3">
 </head>
 <body class="bg-espresso-800 text-champagne-200 min-h-screen flex flex-col selection:bg-champagne-500 selection:text-black">
 
@@ -343,7 +310,7 @@
                             <div class="glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-300 flex flex-col justify-between group">
                                 <div>
                                     <div class="h-56 sm:h-64 overflow-hidden">
-                                        <img src="https://spacematch.ae/_next/image?q=75&url=%2Fabout%2Fbespoke_cta3.webp&w=3840" alt="Furniture & Custom Work" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80';" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                        <img src="https://spacematch.ae/_next/image?q=75&url=%2Fabout%2Fbespoke_cta3.webp&w=1200" alt="Furniture & Custom Work" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80';" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                                     </div>
                                     <div class="p-6">
                                         <h3 class="font-serif text-xl font-bold text-white transition-colors">Furniture & Custom Work</h3>
@@ -516,7 +483,7 @@
                     </div>
                     <div class="glass-card glass-card-hover rounded-2xl overflow-hidden border border-champagne-500/20 flex flex-col h-full group">
                         <div class="h-48 sm:h-52 overflow-hidden">
-                            <img src="https://spacematch.ae/_next/image?q=75&url=%2Fabout%2Fbespoke_cta3.webp&w=3840" alt="Furniture & Custom Work" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80';" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <img src="https://spacematch.ae/_next/image?q=75&url=%2Fabout%2Fbespoke_cta3.webp&w=1200" alt="Furniture & Custom Work" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80';" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-6 flex flex-col flex-1 space-y-4">
                             <i class="fas fa-chair text-2xl text-champagne-400"></i>
@@ -1217,10 +1184,10 @@
             grid.innerHTML = '';
 
             appState.products.slice(0, 4).forEach(prod => {
-                grid.innerHTML += `
+                grid.insertAdjacentHTML('beforeend', `
                     <article class="product-card glass-card rounded-2xl overflow-hidden flex flex-col group">
                         <div class="product-media relative overflow-hidden cursor-pointer" onclick="openProductDetail('${prod.id}')">
-                            <img src="${prod.image}" alt="${prod.name}" loading="lazy" class="absolute inset-0 w-full h-full object-contain p-3">
+                            <img src="${prod.image}" alt="${prod.name}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-contain p-3">
                             <span class="product-stock absolute top-3 right-3">${prod.stock}</span>
                         </div>
                         <div class="p-5 flex flex-col flex-1 gap-2">
@@ -1241,7 +1208,7 @@
                             </div>
                         </div>
                     </article>
-                `;
+                `);
             });
         }
 
@@ -1270,10 +1237,10 @@
             });
 
             filtered.forEach(prod => {
-                grid.innerHTML += `
+                grid.insertAdjacentHTML('beforeend', `
                     <article class="product-card glass-card rounded-2xl overflow-hidden flex flex-col group">
                         <div class="product-media relative overflow-hidden cursor-pointer" onclick="openProductDetail('${prod.id}')">
-                            <img src="${prod.image}" alt="${prod.name}" loading="lazy" class="absolute inset-0 w-full h-full object-contain p-3">
+                            <img src="${prod.image}" alt="${prod.name}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-contain p-3">
                             <span class="product-stock absolute top-3 right-3">${prod.stock}</span>
                         </div>
                         <div class="p-5 flex flex-col flex-1 gap-2">
@@ -1303,7 +1270,7 @@
                             </div>
                         </div>
                     </article>
-                `;
+                `);
             });
         }
 
@@ -1336,11 +1303,11 @@
                 return;
             }
             products.forEach(prod => {
-                list.innerHTML += `<div class="admin-product-card glass-card rounded-2xl p-4 border border-champagne-500/20 flex gap-4">
+                list.insertAdjacentHTML('beforeend', `<div class="admin-product-card glass-card rounded-2xl p-4 border border-champagne-500/20 flex gap-4">
                     <div class="w-20 h-20 shrink-0 rounded-xl overflow-hidden bg-espresso-900/50 border border-champagne-500/10 flex items-center justify-center"><img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-contain p-1"></div>
                     <div class="flex-1 min-w-0"><h4 class="font-serif text-lg font-bold text-white truncate">${prod.name}</h4><p class="text-xs text-champagne-300/60 line-clamp-2">${prod.description}</p><div class="text-sm font-bold gold-gradient-text mt-1">${formatPrice(prod.priceNGN)}</div><div class="text-[10px] text-champagne-400 uppercase mt-1">${prod.stock}</div></div>
                     <div class="flex flex-col gap-2 shrink-0"><button type="button" onclick="editAdminProduct('${prod.id}')" class="px-3 py-2 rounded-lg border border-champagne-500/30 text-champagne-300 text-xs">Edit</button><button type="button" onclick="deleteAdminProduct('${prod.id}')" class="px-3 py-2 rounded-lg border border-red-500/30 text-red-300 text-xs">Delete</button></div>
-                </div>`;
+                </div>`);
             });
         }
         function openAdminProductForm(product) {
@@ -1591,7 +1558,7 @@
             drawerItems.innerHTML = '';
 
             appState.cart.forEach(item => {
-                drawerItems.innerHTML += `
+                drawerItems.insertAdjacentHTML('beforeend', `
                     <div class="flex items-center justify-between p-3 rounded-xl bg-espresso-800 border border-champagne-500/20">
                         <div class="flex items-center space-x-3">
                             <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-lg object-cover">
@@ -1607,7 +1574,7 @@
                             <button onclick="changeQty('${item.id}', 1)" class="w-6 h-6 rounded bg-espresso-900 border border-champagne-500/30 text-xs text-champagne-300 flex items-center justify-center">+</button>
                         </div>
                     </div>
-                `;
+                `);
             });
 
             const subtotalNGN = getCartSubtotalNGN();
@@ -1992,7 +1959,7 @@
 
             list.innerHTML = '';
             orders.forEach(ord => {
-                list.innerHTML += `
+                list.insertAdjacentHTML('beforeend', `
                     <div class="p-4 rounded-xl bg-espresso-900 border border-champagne-500/20 flex items-center justify-between">
                         <div>
                             <div class="flex items-center space-x-2">
@@ -2005,7 +1972,7 @@
                             Track
                         </button>
                     </div>
-                `;
+                `);
             });
         }
 
@@ -2022,7 +1989,7 @@
             }
             if (empty) empty.classList.add('hidden');
             projects.forEach(prj => {
-                grid.innerHTML += `
+                grid.insertAdjacentHTML('beforeend', `
                     <div class="glass-card rounded-2xl overflow-hidden border border-champagne-500/30 group">
                         <div class="h-64 overflow-hidden relative">
                             <img src="${prj.image}" alt="${prj.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -2032,7 +1999,7 @@
                             <h3 class="font-serif text-xl font-bold text-white">${prj.name}</h3>
                             <p class="text-xs text-champagne-300/70 font-light leading-relaxed">${prj.desc}</p>
                         </div>
-                    </div>`;
+                    </div>`);
             });
         }
 
@@ -2066,11 +2033,11 @@
                 return;
             }
             appState.projects.forEach(prj => {
-                list.innerHTML += `<div class="glass-card rounded-2xl p-4 border border-champagne-500/20 flex gap-4">
+                list.insertAdjacentHTML('beforeend', `<div class="glass-card rounded-2xl p-4 border border-champagne-500/20 flex gap-4">
                     <img src="${prj.image}" alt="${prj.name}" class="w-24 h-24 rounded-xl object-cover">
                     <div class="flex-1 min-w-0"><h4 class="font-serif text-lg font-bold text-white truncate">${prj.name}</h4><p class="text-[10px] uppercase text-champagne-400 mt-1">${prj.category}</p><p class="text-xs text-champagne-300/60 line-clamp-2 mt-2">${prj.desc}</p></div>
                     <button onclick="deleteAdminProject('${prj.id}')" class="self-start px-3 py-2 rounded-lg border border-red-500/30 text-red-300 text-xs">Delete</button>
-                </div>`;
+                </div>`);
             });
         }
 
@@ -2178,7 +2145,7 @@
                 }));
                 tbody.innerHTML = '';
                 appState.orders.forEach(ord => {
-                    tbody.innerHTML += `
+                    tbody.insertAdjacentHTML('beforeend', `
                         <tr>
                             <td class="p-4 font-mono font-bold text-champagne-400">${ord.id}</td>
                             <td class="p-4 font-medium text-white">${ord.customer}</td>
@@ -2194,7 +2161,7 @@
                                     <option value="Delivered" ${ord.status==='Delivered'?'selected':''}>Delivered</option>
                                 </select>
                             </td>
-                        </tr>`;
+                        </tr>`);
                 });
             } catch (e) {
                 console.error('Admin orders load error:', e);
@@ -2302,6 +2269,6 @@
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="assets/site.js?v=2"></script>
+<script src="assets/site.js?v=3"></script>
 </body>
 </html>
