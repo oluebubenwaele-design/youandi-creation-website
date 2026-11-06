@@ -83,7 +83,7 @@
 #adminProductsList img{object-fit:contain !important;}
 #adminProductsList .admin-product-card{min-width:0;}
 </style>
-    <link rel="stylesheet" href="assets/redesign.css?v=5">
+    <link rel="stylesheet" href="assets/redesign.css?v=6">
 
 
     <!-- You & I Creation installable web app (PWA) -->
@@ -1019,8 +1019,22 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32 mt-12 pt-6 border-t border-champagne-500/10 text-center text-champagne-300/40">
-            &copy; 2026 YOU AND I CREATION — INTERIOR DESIGN & DECOR. All Rights Reserved.
+        <div class="footer-bar max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32 mt-12">
+            <div class="footer-bar-inner">
+                <!-- Currency seal -->
+                <div class="footer-currency" title="All prices are in Nigerian Naira">
+                    <span class="footer-currency-seal" aria-hidden="true">₦</span>
+                    <span class="footer-currency-text">Currency: NGN (₦)</span>
+                </div>
+
+                <p class="footer-copy">&copy; 2026 YOU AND I CREATION — INTERIOR DESIGN & DECOR. All Rights Reserved.</p>
+
+                <!-- Discreet admin entry: opens the admin login form -->
+                <button onclick="toggleAppMode()" id="appModeBtn" class="footer-admin" type="button">
+                    <span class="footer-admin-icon" aria-hidden="true"><i id="appModeIcon" class="fas fa-key"></i></span>
+                    <span id="appModeText">Switch to Admin Portal</span>
+                </button>
+            </div>
         </div>
     </footer>
 

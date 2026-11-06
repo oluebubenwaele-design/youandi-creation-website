@@ -233,3 +233,52 @@ button:active { transform: none; }
   transition: opacity 1.2s var(--ease);
 }
 #clothBg.is-ready { opacity: 1; }
+
+/* --- Footer bar: currency seal + discreet admin key --------------------- */
+.footer-bar-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(229, 193, 88, .1);
+}
+.footer-copy { text-align: center; color: rgba(232, 211, 167, .4); font-size: 11px; letter-spacing: .04em; }
+.footer-currency { display: inline-flex; align-items: center; gap: .7rem; justify-self: start; color: rgba(232, 211, 167, .6); }
+.footer-currency-seal {
+  width: 2.1rem; height: 2.1rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(229, 193, 88, .45);
+  outline: 1px solid rgba(229, 193, 88, .15);
+  outline-offset: 3px;
+  color: var(--gold-soft);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 700;
+}
+.footer-currency-text { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.footer-admin {
+  justify-self: end;
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .45rem .9rem .45rem .45rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(229, 193, 88, .14);
+  color: rgba(232, 211, 167, .45);
+  font-size: 10px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+}
+.footer-admin-icon {
+  width: 1.6rem; height: 1.6rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 9999px;
+  background: rgba(229, 193, 88, .08);
+  color: var(--gold-soft);
+  font-size: .65rem;
+}
+.footer-admin-icon i { transition: transform .5s var(--ease); }
+.footer-admin:hover { color: var(--gold-soft); border-color: rgba(229, 193, 88, .45); }
+.footer-admin:hover .footer-admin-icon i { transform: rotate(-35deg); }
+@media (max-width: 767px) {
+  .footer-bar-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .footer-currency, .footer-admin { justify-self: center; }
+  .footer-copy { order: 3; }
+}
