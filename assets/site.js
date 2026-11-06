@@ -16,12 +16,37 @@
       var p = video.play();
       if (p && typeof p.catch === 'function') p.catch(function () {});
     };
-    video.addEventListener('canplay', tryPlay);
-    tryPlay();
-    document.addEventListener('visibilitychange', function () { if (!document.hidden) tryPlay(); });
+    // Only play while the hero is on screen (and the home tab is showing).
+    var inView = true;
+    var section = document.getElementById('heroSection');
+    var sync = function () {
+      if (inView && !document.hidden && section && section.offsetParent !== null) tryPlay();
+      else if (!video.paused) video.pause();
+    };
+    if (section && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting; sync();
+      }, { threshold: 0.01 }).observe(section);
+    }
+    // Scroll fallback (IntersectionObserver can be delayed in background tabs).
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking || !section) return;
+      ticking = true;
+      setTimeout(function () {
+        ticking = false;
+        var r = section.getBoundingClientRect();
+        var vis = r.bottom > 0 && r.top < window.innerHeight;
+        if (vis !== inView) { inView = vis; sync(); }
+      }, 120);
+    }, { passive: true });
+    video.addEventListener('canplay', sync);
+    sync();
+    document.addEventListener('visibilitychange', sync);
+    window.__heroVideoSync = sync;
     // iOS low-power mode blocks autoplay: start on first interaction instead.
     ['touchstart', 'click'].forEach(function (evt) {
-      window.addEventListener(evt, tryPlay, { once: true, passive: true });
+      window.addEventListener(evt, function () { if (inView) tryPlay(); }, { once: true, passive: true });
     });
   }
 
@@ -55,8 +80,8 @@
     tl.from('.hero-line', { yPercent: 110, duration: 1.15, stagger: .12, ease: 'power4.out' }, .15)
       .from('.hero-copy', { y: 18, autoAlpha: 0, duration: .9 }, '-=.75')
       .from('.hero-cta > *', { y: 14, autoAlpha: 0, duration: .7, stagger: .1, clearProps: 'transform' }, '-=.6')
-      .from('.hero-media', { clipPath: 'inset(100% 0% 0% 0% round 1.5rem)', duration: 1.5, ease: 'expo.out' }, .1)
-      .from('.hero-media img, .hero-media video', { scale: 1.3, duration: 2, ease: 'expo.out' }, .1);
+      .from('.hero-media img, .hero-media video', { scale: 1.15, duration: 2.4, ease: 'expo.out' }, 0)
+      .from('.hero-scrim', { autoAlpha: 0, duration: 1.2 }, 0);
 
     var HEAD_SEL = 'h1, h2, .tracking-\\[0\\.3em\\]';
     var CARD_SEL = '.glass-card, .product-card, .cat-btn, .proj-btn';
@@ -103,7 +128,7 @@
     if (typeof origSwitch === 'function') {
       window.switchTab = function (id) {
         var r = origSwitch.apply(this, arguments);
-        requestAnimationFrame(function () { animateScope(document.getElementById('tab-' + id)); });
+        requestAnimationFrame(function () { animateScope(document.getElementById('tab-' + id)); if (window.__heroVideoSync) window.__heroVideoSync(); });
         return r;
       };
     }

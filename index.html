@@ -116,7 +116,7 @@
 #adminProductsList img{object-fit:contain !important;}
 #adminProductsList .admin-product-card{min-width:0;}
 </style>
-    <link rel="stylesheet" href="assets/redesign.css">
+    <link rel="stylesheet" href="assets/redesign.css?v=2">
 </head>
 <body class="bg-espresso-800 text-champagne-200 min-h-screen flex flex-col selection:bg-champagne-500 selection:text-black">
 
@@ -125,7 +125,7 @@
     
     <!-- Main Navigation Header -->
     <header class="site-header sticky top-0 z-40 border-b border-champagne-500/15">
-        <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+        <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32">
             <div class="flex items-center justify-between h-20 lg:h-24">
                 
                 <!-- Logo Integration: Monogram Y&I & Business Name -->
@@ -201,21 +201,29 @@
             <!-- 1. HOME TAB -->
             <section id="tab-home" class="tab-content block">
                 
-                <!-- Hero -->
-                <div class="hero relative overflow-hidden border-b border-champagne-500/15">
-                    <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center py-14 sm:py-20 lg:py-24">
-                        <div class="lg:col-span-7 space-y-8">
+                <!-- Hero: full-viewport, fixed video background -->
+                <div class="hero" id="heroSection">
+                    <div class="hero-media" id="heroMedia" aria-hidden="true">
+                        <img src="assets/hero-poster.jpg" alt="" class="hero-poster" fetchpriority="high">
+                        <video id="heroVideo" class="hero-video" muted loop playsinline autoplay preload="auto" poster="assets/hero-poster.jpg" disablepictureinpicture disableremoteplayback>
+                            <source src="assets/hero-video.mp4" type="video/mp4">
+                        </video>
+                        <div class="hero-scrim"></div>
+                    </div>
+
+                    <div class="hero-inner max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32">
+                        <div class="hero-content space-y-7 lg:space-y-8">
                             <h1 class="hero-title font-serif font-bold tracking-tight text-white">
                                 <span class="hero-mask"><span class="hero-line hero-eyebrow block">INTERIOR DESIGN & DECOR</span></span>
                                 <span class="hero-mask"><span class="hero-line block">Beautiful Spaces.</span></span>
                                 <span class="hero-mask"><span class="hero-line block font-serif italic gold-gradient-text">Better Living.</span></span>
                             </h1>
 
-                            <p class="hero-copy max-w-xl">
+                            <p class="hero-copy max-w-lg">
                                 Thoughtfully designed interiors, curated pieces and elevated spaces created for the way you live.
                             </p>
 
-                            <div class="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+                            <div class="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 pt-1">
                                 <button onclick="switchTab('products')" class="btn-gold w-full sm:w-auto px-8 py-4 text-xs uppercase tracking-widest rounded-full">
                                     Explore Shop Collections
                                 </button>
@@ -224,20 +232,11 @@
                                 </button>
                             </div>
                         </div>
-
-                        <div class="lg:col-span-5">
-                            <div class="hero-media" id="heroMedia">
-                                <img src="assets/hero-poster.jpg" alt="Living room interior by You And I Creation" class="hero-poster" fetchpriority="high">
-                                <video id="heroVideo" class="hero-video" muted loop playsinline autoplay preload="auto" poster="assets/hero-poster.jpg" aria-hidden="true" disablepictureinpicture disableremoteplayback>
-                                    <source src="assets/hero-video.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Featured Products Carousel / Grid -->
-                <section class="py-20 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+                <section class="py-20 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32">
                     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                         <div>
                             <span class="text-xs uppercase tracking-[0.3em] text-white font-bold">Luxury Furnishings</span>
@@ -256,7 +255,7 @@
 
                 <!-- Signature Services -->
                 <section class="py-20 bg-espresso-900/60 border-y border-champagne-500/20">
-                    <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+                    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32">
                         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                             <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">Architectural Excellence</span>
                             <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">Our Signature Services</h2>
@@ -401,7 +400,7 @@
                 </section>
 
                 <!-- You & I Creation Portfolio Feature -->
-                <section class="py-20 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+                <section class="py-20 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32">
                     <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-champagne-500/30 ">
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                             <div class="lg:col-span-5 space-y-6">
@@ -429,7 +428,7 @@
             </section>
 
             <!-- 2. PRODUCTS TAB -->
-            <section id="tab-products" class="tab-content hidden py-16 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+            <section id="tab-products" class="tab-content hidden py-16 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32">
                 <!-- Page Header & Search Filter -->
                 <div class="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-champagne-500/20 gap-6">
                     <div>
@@ -463,7 +462,7 @@
             </section>
 
             <!-- 3. SERVICES TAB -->
-            <section id="tab-services" class="tab-content hidden py-16 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 space-y-16">
+            <section id="tab-services" class="tab-content hidden py-16 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32 space-y-16">
                 <div class="text-center max-w-3xl mx-auto space-y-4">
                     <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">End-To-End Interior Architecture</span>
                     <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white">Our Design Services</h1>
@@ -559,7 +558,7 @@
             </section>
 
             <!-- 5. PROJECTS TAB -->
-            <section id="tab-projects" class="tab-content hidden py-16 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
+            <section id="tab-projects" class="tab-content hidden py-16 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32 space-y-12">
                 <div class="text-center max-w-3xl mx-auto space-y-3">
                     <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">Our Work</span>
                     <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white">Portfolio Projects</h2>
@@ -582,7 +581,7 @@
             </section>
 
             <!-- 5. TRACKING TAB -->
-            <section id="tab-tracking" class="tab-content hidden py-16 max-w-4xl mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
+            <section id="tab-tracking" class="tab-content hidden py-16 max-w-4xl mx-auto px-6 sm:px-10 lg:px-24 space-y-12">
                 <div class="text-center space-y-3">
                     <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">Real-Time Transparency</span>
                     <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white">Track Your Order</h1>
@@ -605,7 +604,7 @@
             </section>
 
             <!-- 6. ACCOUNT TAB -->
-            <section id="tab-account" class="tab-content hidden py-16 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
+            <section id="tab-account" class="tab-content hidden py-16 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32 space-y-12">
                 <!-- User Profile Banner -->
                 <div class="glass-card rounded-3xl p-8 border border-champagne-500/30 space-y-6">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-5">
@@ -684,7 +683,7 @@
         <!-- ================================================================= -->
         <!-- ADMIN PORTAL VIEW                                                 -->
         <!-- ================================================================= -->
-        <div id="adminView" style="display:none" class="hidden py-10 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 space-y-10">
+        <div id="adminView" style="display:none" class="hidden py-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32 space-y-10">
             <!-- Admin Header Stats -->
             <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-champagne-500/20 pb-6 gap-4">
                 <div>
@@ -1004,7 +1003,7 @@
 
     <!-- Footer -->
     <footer class="bg-black border-t border-champagne-500/20 py-16 text-xs text-champagne-300/60 mt-auto">
-        <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div>
                 <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 rounded-lg border border-champagne-400/60 bg-espresso-800 flex items-center justify-center font-serif text-lg font-bold gold-gradient-text">Y&I</div>
@@ -1042,7 +1041,7 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 mt-12 pt-6 border-t border-champagne-500/10 text-center text-champagne-300/40">
+        <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-24 xl:px-32 mt-12 pt-6 border-t border-champagne-500/10 text-center text-champagne-300/40">
             &copy; 2026 YOU AND I CREATION — INTERIOR DESIGN & DECOR. All Rights Reserved.
         </div>
     </footer>
@@ -2303,6 +2302,6 @@
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=2"></script>
 </body>
 </html>
