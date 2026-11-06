@@ -112,300 +112,33 @@
             animation: pulseGlow 6s infinite ease-in-out;
         }
     </style>
-<style id="home-background-video-style">
-#homeBackgroundVideo.home-background-video{
-  position:fixed!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  z-index:-2!important;
-  pointer-events:none!important;
-  display:block!important;
-}
-body::before{z-index:-1!important;}
+<style id="admin-product-fix">
+#adminProductsList img{object-fit:contain !important;}
+#adminProductsList .admin-product-card{min-width:0;}
 </style>
-<style id="ios-video-play-button-hide">
-#homeBackgroundVideo::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none!important;}
-#homeBackgroundVideo::-webkit-media-controls{display:none!important;}
-#homeBackgroundVideo::-webkit-media-controls-panel{display:none!important;}
-</style>
-
-<style id="catalog-highlight-fix">
-/* Make the catalog action unmistakably clickable without changing the page structure. */
-#tab-home .catalog-link-highlight{
-  display:inline-flex !important;
-  align-items:center !important;
-  gap:.65rem !important;
-  padding:.9rem 1.35rem !important;
-  margin-top:.9rem !important;
-  border:2px solid rgba(212,175,55,.95) !important;
-  border-radius:9999px !important;
-  background:linear-gradient(135deg,#d4af37,#f0cf62) !important;
-  color:#120d0b !important;
-  font-size:.95rem !important;
-  font-weight:800 !important;
-  letter-spacing:.12em !important;
-  text-decoration:none !important;
-  box-shadow:0 0 0 3px rgba(212,175,55,.14),0 10px 30px rgba(0,0,0,.28) !important;
-  transform:translateZ(0);
-}
-#tab-home .catalog-link-highlight:hover{ transform:translateY(-2px) !important; }
-@media(max-width:640px){
-  #tab-home .catalog-link-highlight{font-size:.9rem !important;padding:.95rem 1.25rem !important;letter-spacing:.1em !important;}
-}
-</style>
-<style id="readability-and-header-video-fix">
-/* Keep the existing luxury design, but make the video visible through the header. */
-header.sticky.top-0.z-40{
-  background: rgba(18, 13, 11, 0.38) !important;
-  -webkit-backdrop-filter: blur(5px) !important;
-  backdrop-filter: blur(5px) !important;
-  border-bottom-color: rgba(229,193,88,0.28) !important;
-}
-#mobileMenu{
-  background: rgba(18, 13, 11, 0.82) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  backdrop-filter: blur(10px) !important;
-}
-
-/* Stronger readability wherever text sits over the moving background. */
-#tab-home h1,
-#tab-home h2,
-#tab-home p,
-#tab-home .gold-gradient-text,
-#tab-home button,
-#tab-home span{
-  text-shadow: 0 2px 8px rgba(0,0,0,0.62);
-}
-
-/* Product cards: larger, brighter copy and prices; show the full description. */
-#homeFeaturedProductsGrid .product-description,
-#productsCatalogGrid .product-description{
-  font-size: 1rem !important;
-  line-height: 1.7 !important;
-  color: #FFF7E8 !important;
-  opacity: 1 !important;
-  display: block !important;
-  -webkit-line-clamp: unset !important;
-  line-clamp: unset !important;
-  overflow: visible !important;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.45);
-}
-#homeFeaturedProductsGrid .product-title,
-#productsCatalogGrid .product-title{
-  font-size: 1.35rem !important;
-  line-height: 1.2 !important;
-  color: #FFFDF7 !important;
-}
-#homeFeaturedProductsGrid .product-price,
-#productsCatalogGrid .product-price{
-  font-size: 1.65rem !important;
-  line-height: 1.15 !important;
-  color: #F4D36A !important;
-  -webkit-text-fill-color: #F4D36A !important;
-  background: none !important;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-}
-#homeFeaturedProductsGrid .product-unit,
-#productsCatalogGrid .product-unit{
-  font-size: 0.72rem !important;
-  color: #F3E4C8 !important;
-  opacity: 1 !important;
-}
-
-/* Make the service/project copy easier to read without changing the layout. */
-#tab-services p,
-#tab-projects p{
-  color: #FFF4DF !important;
-  opacity: 1 !important;
-  font-size: 0.95rem !important;
-  line-height: 1.7 !important;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.55);
-}
-#tab-services h1,
-#tab-services h2,
-#tab-services h3,
-#tab-projects h2,
-#tab-projects h3{
-  text-shadow: 0 2px 7px rgba(0,0,0,0.58);
-}
-
-@media (max-width: 640px){
-  #homeFeaturedProductsGrid .product-description,
-  #productsCatalogGrid .product-description{
-    font-size: 1rem !important;
-    line-height: 1.75 !important;
-  }
-  #homeFeaturedProductsGrid .product-title,
-  #productsCatalogGrid .product-title{
-    font-size: 1.45rem !important;
-  }
-  #homeFeaturedProductsGrid .product-price,
-  #productsCatalogGrid .product-price{
-    font-size: 1.8rem !important;
-  }
-  #tab-services p,
-  #tab-projects p{
-    font-size: 1rem !important;
-    line-height: 1.75 !important;
-  }
-}
-</style>
-
-
-<style id="final-readability-v5">
-/* Final mobile readability pass: preserve the existing design while giving copy a solid, high-contrast reading surface. */
-#homeFeaturedProductsGrid .product-description, #productsCatalogGrid .product-description{
-  font-size:1.08rem !important; line-height:1.8 !important; font-weight:500 !important;
-  color:#FFFFFF !important; opacity:1 !important; -webkit-text-fill-color:#FFFFFF !important;
-  background:rgba(20,14,10,.82) !important; border:1px solid rgba(244,211,106,.18) !important;
-  border-radius:12px !important; padding:10px 12px !important;
-  text-shadow:0 2px 5px rgba(0,0,0,.75) !important;
-  display:block !important; overflow:visible !important; -webkit-line-clamp:unset !important; line-clamp:unset !important;
-}
-#homeFeaturedProductsGrid .product-title, #productsCatalogGrid .product-title{
-  font-size:1.5rem !important; color:#FFFDF7 !important; font-weight:700 !important;
-  text-shadow:0 2px 5px rgba(0,0,0,.8) !important;
-}
-#homeFeaturedProductsGrid .product-price, #productsCatalogGrid .product-price{
-  font-size:1.9rem !important; color:#F4D36A !important; -webkit-text-fill-color:#F4D36A !important;
-  text-shadow:0 2px 5px rgba(0,0,0,.8) !important;
-}
-#tab-services p, #tab-projects p{
-  font-size:1.08rem !important; line-height:1.8 !important; font-weight:500 !important;
-  color:#FFFFFF !important; opacity:1 !important;
-  background:rgba(18,12,9,.72) !important; border-radius:12px !important;
-  padding:12px 14px !important; text-shadow:0 2px 5px rgba(0,0,0,.8) !important;
-}
-@media(max-width:640px){
-  #homeFeaturedProductsGrid .product-description, #productsCatalogGrid .product-description{font-size:1.08rem !important;line-height:1.8 !important;}
-  #homeFeaturedProductsGrid .product-title, #productsCatalogGrid .product-title{font-size:1.5rem !important;}
-  #homeFeaturedProductsGrid .product-price, #productsCatalogGrid .product-price{font-size:1.95rem !important;}
-  #tab-services p, #tab-projects p{font-size:1.08rem !important;line-height:1.8 !important;}
-}
-</style>
-<style>
-/* Readability updates requested for the current design revision */
-#tab-home .service-description { font-size: 1rem !important; line-height: 1.7 !important; }
-#tab-home .glass-card h3 { color: #fff !important; }
-#tab-home .glass-card p { color: #fff !important; }
-#tab-home #homeFeaturedProductsGrid { color: #fff; }
-#tab-home > .relative h1, #tab-home > .relative p { color: #fff !important; }
-#tab-home > .relative h1 span { color: #fff !important; }
-#tab-home section:first-of-type span, #tab-home section:first-of-type h2, #tab-home section:first-of-type button { }
-@media (min-width: 640px) {
-  #tab-home .service-description { font-size: 1.08rem !important; }
-}
-</style>
-
-<style id="product-catalog-final-fix">
-/* Final product catalogue presentation: show the complete image and keep descriptions compact. */
-#homeFeaturedProductsGrid .product-description,
-#productsCatalogGrid .product-description{
-  font-size:0.86rem !important;
-  line-height:1.5 !important;
-  font-weight:400 !important;
-  color:#F7F0E4 !important;
-  background:transparent !important;
-  border:0 !important;
-  border-radius:0 !important;
-  padding:0 !important;
-  text-shadow:0 1px 3px rgba(0,0,0,.45) !important;
-  display:-webkit-box !important;
-  -webkit-box-orient:vertical !important;
-  -webkit-line-clamp:3 !important;
-  line-clamp:3 !important;
-  overflow:hidden !important;
-}
-#homeFeaturedProductsGrid .product-title,
-#productsCatalogGrid .product-title{
-  font-size:1.12rem !important;
-  line-height:1.25 !important;
-  font-weight:600 !important;
-}
-#homeFeaturedProductsGrid .product-price,
-#productsCatalogGrid .product-price{
-  font-size:1.5rem !important;
-}
-#homeFeaturedProductsGrid > div > .relative,
-#productsCatalogGrid > div > .relative{
-  background:rgba(18,13,11,.22) !important;
-}
-#adminProductsList img{
-  object-fit:contain !important;
-}
-#adminProductsList .admin-product-card{
-  min-width:0;
-}
-@media(max-width:640px){
-  #homeFeaturedProductsGrid .product-description,
-  #productsCatalogGrid .product-description{font-size:0.84rem !important;line-height:1.5 !important;}
-  #homeFeaturedProductsGrid .product-title,
-  #productsCatalogGrid .product-title{font-size:1.08rem !important;}
-}
-</style>
-
-<style id="product-image-and-learn-more-fix">
-/* Product cards: enlarge photos while preserving the complete image. */
-#homeFeaturedProductsGrid > div > .relative img,
-#productsCatalogGrid > div > .relative img {
-  object-fit: contain !important;
-  object-position: center !important;
-}
-#productsCatalogGrid .product-description {
-  font-weight: 400 !important;
-  font-size: 0.98rem !important;
-  line-height: 1.55 !important;
-}
-#productsCatalogGrid .product-learn-more {
-  display: inline-flex !important;
-}
-@media (max-width:640px){
-  #productsCatalogGrid > div > .relative { height: 20rem !important; }
-  #homeFeaturedProductsGrid > div > .relative { height: 18rem !important; }
-}
-</style>
+    <link rel="stylesheet" href="assets/redesign.css">
 </head>
 <body class="bg-espresso-800 text-champagne-200 min-h-screen flex flex-col selection:bg-champagne-500 selection:text-black">
-<video id="homeBackgroundVideo" class="home-background-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" disablepictureinpicture disableremoteplayback x-webkit-airplay="deny">
-  <source src="assets/home-background.mp4" type="video/mp4">
-</video>
 
 
-    <!-- Mode Switcher Header Accent Bar -->
-    <div class="bg-espresso-900 border-b border-champagne-500/20 py-2 px-4 text-xs">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            
 
-            <div class="flex items-center space-x-4">
-                <div class="flex items-center text-[11px] text-champagne-400 font-semibold">Currency: NGN (₦)</div>
-
-                <!-- Customer / Admin App Toggle Button -->
-                <button onclick="toggleAppMode()" id="appModeBtn" class="flex items-center space-x-2 px-3 py-1 rounded-full bg-champagne-500/20 border border-champagne-400/40 text-champagne-400 text-[11px] font-semibold hover:bg-champagne-400 hover:text-black transition-all">
-                    <i id="appModeIcon" class="fas fa-user-shield"></i>
-                    <span id="appModeText">Switch to Admin Portal</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
+    
     <!-- Main Navigation Header -->
-    <header class="sticky top-0 z-40 bg-espresso-900/55 backdrop-blur-md border-b border-champagne-500/20 shadow-2xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-24">
+    <header class="site-header sticky top-0 z-40 border-b border-champagne-500/15">
+        <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+            <div class="flex items-center justify-between h-20 lg:h-24">
                 
                 <!-- Logo Integration: Monogram Y&I & Business Name -->
-                <div class="flex items-center space-x-4 cursor-pointer" onclick="switchTab('home')">
+                <div class="logo-group flex items-center space-x-4 cursor-pointer" onclick="switchTab('home')">
                     <!-- Gold Monogram Badge -->
-                    <div class="w-14 h-14 rounded-xl border-2 border-champagne-400/60 bg-gradient-to-br from-espresso-700 via-espresso-900 to-black flex flex-col items-center justify-center relative shadow-xl group hover:border-champagne-400 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-xl border-2 border-champagne-400/60 bg-gradient-to-br from-espresso-700 via-espresso-900 to-black flex flex-col items-center justify-center relative  group hover:border-champagne-400 transition-all duration-300">
                         
                         <span class="font-serif text-2xl font-bold tracking-tighter gold-gradient-text relative z-10">Y&I</span>
                     </div>
                     <div>
                         <span class="font-cinzel text-xl sm:text-2xl font-extrabold tracking-widest text-white block">YOU AND I</span>
                         <span class="font-cinzel text-xs tracking-[0.35em] gold-gradient-text block font-semibold">CREATION</span>
-                        <span class="text-[9px] uppercase tracking-widest text-white block mt-0.5 font-light italic">Beautiful Spaces. Better Living.</span>
+                        
                     </div>
                 </div>
 
@@ -426,15 +159,15 @@ header.sticky.top-0.z-40{
                 </div>
 
                 <!-- Navigation Actions: Cart Drawer & Consultation Quick CTA -->
-                <div class="flex items-center space-x-5">
+                <div class="nav-actions flex items-center space-x-5">
                     <!-- Shopping Cart Trigger -->
                     <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-full border border-champagne-500/30 text-champagne-300 hover:text-champagne-400 hover:border-champagne-400 transition-all">
                         <i class="fas fa-shopping-bag text-lg"></i>
-                        <span id="cartBadge" class="absolute -top-1 -right-1 bg-champagne-500 text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-lg">0</span>
+                        <span id="cartBadge" class="absolute -top-1 -right-1 bg-champagne-500 text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center ">0</span>
                     </button>
 
                     <!-- Consultation Button -->
-                    <button onclick="switchTab('services'); scrollToQuoteCalculator();" class="hidden sm:inline-flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-full shadow-xl shadow-champagne-500/10 transition-all transform hover:-translate-y-0.5">
+                    <button onclick="switchTab('services'); scrollToQuoteCalculator();" class="hidden sm:inline-flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-full   transition-all ">
                         <i class="fas fa-calendar-alt text-xs"></i>
                         <span>Consultation</span>
                     </button>
@@ -468,35 +201,43 @@ header.sticky.top-0.z-40{
             <!-- 1. HOME TAB -->
             <section id="tab-home" class="tab-content block">
                 
-                <!-- Hero Banner with Video Background Simulation -->
-                <div class="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-champagne-500/20 py-20">
-                    <!-- The site-wide background video now shows through this area. -->
-                    <div class="absolute inset-0 z-0 bg-black/25 pointer-events-none"></div>
+                <!-- Hero -->
+                <div class="hero relative overflow-hidden border-b border-champagne-500/15">
+                    <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center py-14 sm:py-20 lg:py-24">
+                        <div class="lg:col-span-7 space-y-8">
+                            <h1 class="hero-title font-serif font-bold tracking-tight text-white">
+                                <span class="hero-mask"><span class="hero-line hero-eyebrow block">INTERIOR DESIGN & DECOR</span></span>
+                                <span class="hero-mask"><span class="hero-line block">Beautiful Spaces.</span></span>
+                                <span class="hero-mask"><span class="hero-line block font-serif italic gold-gradient-text">Better Living.</span></span>
+                            </h1>
 
-                    <div class="max-w-5xl mx-auto px-4 text-center relative z-10 space-y-8">
-                        <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-tight">
-                            <span class="block text-2xl sm:text-4xl md:text-5xl tracking-[0.08em]">INTERIOR DESIGN & DECOR</span>
-                            <span class="block mt-3">Beautiful Spaces. <br>
-                            <span class="font-serif italic text-white">Better Living.</span></span>
-                        </h1>
+                            <p class="hero-copy max-w-xl">
+                                Thoughtfully designed interiors, curated pieces and elevated spaces created for the way you live.
+                            </p>
 
-                        <p class="text-sm sm:text-lg text-white max-w-2xl mx-auto font-light leading-relaxed">
-                            Thoughtfully designed interiors, curated pieces and elevated spaces created for the way you live.
-                        </p>
+                            <div class="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+                                <button onclick="switchTab('products')" class="btn-gold w-full sm:w-auto px-8 py-4 text-xs uppercase tracking-widest rounded-full">
+                                    Explore Shop Collections
+                                </button>
+                                <button onclick="window.open('https://wa.me/2347047751718', '_blank')" class="btn-ghost w-full sm:w-auto px-8 py-4 text-xs uppercase tracking-widest rounded-full">
+                                    Request Design Quote
+                                </button>
+                            </div>
+                        </div>
 
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                            <button onclick="switchTab('products')" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-full shadow-2xl shadow-champagne-500/20 transition-all transform hover:-translate-y-1">
-                                Explore Shop Collections
-                            </button>
-                            <button onclick="window.open('https://wa.me/2347047751718', '_blank')" class="w-full sm:w-auto px-8 py-4 border border-champagne-500/40 hover:border-champagne-400 bg-espresso-900/60 hover:bg-espresso-700/80 text-champagne-200 hover:text-white font-semibold text-xs uppercase tracking-widest rounded-full backdrop-blur-md transition-all">
-                                Request Design Quote
-                            </button>
+                        <div class="lg:col-span-5">
+                            <div class="hero-media" id="heroMedia">
+                                <img src="assets/hero-poster.jpg" alt="Living room interior by You And I Creation" class="hero-poster" fetchpriority="high">
+                                <video id="heroVideo" class="hero-video" muted loop playsinline autoplay preload="auto" poster="assets/hero-poster.jpg" aria-hidden="true" disablepictureinpicture disableremoteplayback>
+                                    <source src="assets/hero-video.mp4" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Featured Products Carousel / Grid -->
-                <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <section class="py-20 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
                     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                         <div>
                             <span class="text-xs uppercase tracking-[0.3em] text-white font-bold">Luxury Furnishings</span>
@@ -508,14 +249,14 @@ header.sticky.top-0.z-40{
                         </button>
                     </div>
 
-                    <div id="homeFeaturedProductsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div id="homeFeaturedProductsGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
                         <!-- Dynamic Featured Product Cards Rendered via JS -->
                     </div>
                 </section>
 
                 <!-- Signature Services -->
                 <section class="py-20 bg-espresso-900/60 border-y border-champagne-500/20">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
                         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                             <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">Architectural Excellence</span>
                             <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">Our Signature Services</h2>
@@ -660,8 +401,8 @@ header.sticky.top-0.z-40{
                 </section>
 
                 <!-- You & I Creation Portfolio Feature -->
-                <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-champagne-500/30 shadow-2xl">
+                <section class="py-20 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+                    <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-champagne-500/30 ">
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                             <div class="lg:col-span-5 space-y-6">
                                 <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">Our Work</span>
@@ -677,7 +418,7 @@ header.sticky.top-0.z-40{
                             </div>
 
                             <div class="lg:col-span-7">
-                                <div class="relative w-full rounded-2xl overflow-hidden border border-champagne-500/30 shadow-2xl bg-black/20">
+                                <div class="relative w-full rounded-2xl overflow-hidden border border-champagne-500/30  bg-black/20">
                                     <img src="assets/portfolio-after.jpg" alt="You & I Creation completed interior project" class="block w-full h-auto object-contain mx-auto" loading="lazy">
                                 </div>
                             </div>
@@ -688,7 +429,7 @@ header.sticky.top-0.z-40{
             </section>
 
             <!-- 2. PRODUCTS TAB -->
-            <section id="tab-products" class="tab-content hidden py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section id="tab-products" class="tab-content hidden py-16 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
                 <!-- Page Header & Search Filter -->
                 <div class="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-champagne-500/20 gap-6">
                     <div>
@@ -716,13 +457,13 @@ header.sticky.top-0.z-40{
                 </div>
 
                 <!-- Product Grid -->
-                <div id="productsCatalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-4">
+                <div id="productsCatalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 mt-4">
                     <!-- Rendered dynamically by JavaScript -->
                 </div>
             </section>
 
             <!-- 3. SERVICES TAB -->
-            <section id="tab-services" class="tab-content hidden py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            <section id="tab-services" class="tab-content hidden py-16 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 space-y-16">
                 <div class="text-center max-w-3xl mx-auto space-y-4">
                     <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">End-To-End Interior Architecture</span>
                     <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white">Our Design Services</h1>
@@ -809,16 +550,16 @@ header.sticky.top-0.z-40{
                     </div>
                 </div>
 
-                <div class="glass-card rounded-3xl p-8 sm:p-12 border border-champagne-500/40 shadow-2xl text-center space-y-5">
+                <div class="glass-card rounded-3xl p-8 sm:p-12 border border-champagne-500/40  text-center space-y-5">
                     <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">Professional Assessment</span>
                     <h2 class="font-serif text-2xl sm:text-4xl font-bold text-white">Need A Quote?</h2>
                     <p class="max-w-2xl mx-auto text-xs sm:text-sm text-champagne-300/70 leading-relaxed">We do not provide an automatic quote because an accurate estimate depends on the actual space, measurements, scope and design requirements. Contact us on WhatsApp and our professional team will guide you through the assessment process.</p>
-                    <button onclick="window.open('https://wa.me/2347047751718', '_blank')" class="px-8 py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg">Request A Quote on WhatsApp</button>
+                    <button onclick="window.open('https://wa.me/2347047751718', '_blank')" class="px-8 py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-xl transition-all ">Request A Quote on WhatsApp</button>
                 </div>
             </section>
 
             <!-- 5. PROJECTS TAB -->
-            <section id="tab-projects" class="tab-content hidden py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <section id="tab-projects" class="tab-content hidden py-16 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
                 <div class="text-center max-w-3xl mx-auto space-y-3">
                     <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">Our Work</span>
                     <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white">Portfolio Projects</h2>
@@ -841,17 +582,17 @@ header.sticky.top-0.z-40{
             </section>
 
             <!-- 5. TRACKING TAB -->
-            <section id="tab-tracking" class="tab-content hidden py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <section id="tab-tracking" class="tab-content hidden py-16 max-w-4xl mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
                 <div class="text-center space-y-3">
                     <span class="text-xs uppercase tracking-[0.3em] gold-gradient-text font-bold">Real-Time Transparency</span>
                     <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white">Track Your Order</h1>
                     <p class="text-xs sm:text-sm text-champagne-300/70 font-light">Enter the unique tracking ID provided after your payment to view your current order status.</p>
                 </div>
 
-                <div class="glass-card rounded-3xl p-6 sm:p-10 border border-champagne-500/30 shadow-2xl space-y-8">
+                <div class="glass-card rounded-3xl p-6 sm:p-10 border border-champagne-500/30  space-y-8">
                     <div class="flex flex-col sm:flex-row gap-3">
                         <input type="text" id="trackingIdInput" value="" placeholder="Enter your tracking ID e.g. YI-A1B2C3D4" class="bg-espresso-900 border border-champagne-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne-400 flex-grow font-mono uppercase">
-                        <button onclick="searchTrackingStatus()" class="px-8 py-3 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-xl shadow-lg transition-all">
+                        <button onclick="searchTrackingStatus()" class="px-8 py-3 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-xl  transition-all">
                             Track Status
                         </button>
                     </div>
@@ -864,7 +605,7 @@ header.sticky.top-0.z-40{
             </section>
 
             <!-- 6. ACCOUNT TAB -->
-            <section id="tab-account" class="tab-content hidden py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <section id="tab-account" class="tab-content hidden py-16 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
                 <!-- User Profile Banner -->
                 <div class="glass-card rounded-3xl p-8 border border-champagne-500/30 space-y-6">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-5">
@@ -943,7 +684,7 @@ header.sticky.top-0.z-40{
         <!-- ================================================================= -->
         <!-- ADMIN PORTAL VIEW                                                 -->
         <!-- ================================================================= -->
-        <div id="adminView" style="display:none" class="hidden py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div id="adminView" style="display:none" class="hidden py-10 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 space-y-10">
             <!-- Admin Header Stats -->
             <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-champagne-500/20 pb-6 gap-4">
                 <div>
@@ -1101,7 +842,7 @@ header.sticky.top-0.z-40{
     <!-- Slide-Out Cart Drawer -->
     <div id="cartDrawer" class="fixed inset-0 z-50 hidden">
         
-        <div class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-espresso-900 border-l border-champagne-500/30 p-6 flex flex-col justify-between shadow-2xl">
+        <div class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-espresso-900 border-l border-champagne-500/30 p-6 flex flex-col justify-between ">
             <div>
                 <div class="flex justify-between items-center border-b border-champagne-500/20 pb-4">
                     <div class="flex items-center space-x-2">
@@ -1145,7 +886,7 @@ header.sticky.top-0.z-40{
 
     <!-- Signature Service Details Modal -->
     <div id="serviceDetailModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-card border border-champagne-500/40 rounded-3xl max-w-4xl w-full p-6 sm:p-8 relative shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+        <div class="glass-card border border-champagne-500/40 rounded-3xl max-w-4xl w-full p-6 sm:p-8 relative  overflow-hidden max-h-[90vh] overflow-y-auto">
             <button onclick="closeServiceDetailModal()" class="absolute top-4 right-4 text-champagne-400 hover:text-white">
                 <i class="fas fa-times text-xl"></i>
             </button>
@@ -1157,7 +898,7 @@ header.sticky.top-0.z-40{
 
     <!-- Product Details Modal -->
     <div id="productDetailModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-card border border-champagne-500/40 rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+        <div class="glass-card border border-champagne-500/40 rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative  overflow-hidden max-h-[90vh] overflow-y-auto">
             <button onclick="closeProductDetailModal()" class="absolute top-4 right-4 text-champagne-400 hover:text-white">
                 <i class="fas fa-times text-xl"></i>
             </button>
@@ -1169,7 +910,7 @@ header.sticky.top-0.z-40{
 
     <!-- Integrated Checkout & Payment Gateway Modal -->
     <div id="checkoutModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-card border border-champagne-500/40 rounded-3xl max-w-2xl w-full p-6 sm:p-10 relative shadow-2xl overflow-y-auto max-h-[92vh]">
+        <div class="glass-card border border-champagne-500/40 rounded-3xl max-w-2xl w-full p-6 sm:p-10 relative  overflow-y-auto max-h-[92vh]">
             <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-champagne-400 hover:text-white">
                 <i class="fas fa-times text-xl"></i>
             </button>
@@ -1247,7 +988,7 @@ header.sticky.top-0.z-40{
                             <span id="chkDeliveryDisplay">Delivery fee to be confirmed separately</span>
                         </div>
                     </div>
-                    <button type="button" onclick="processFinalPayment()" id="chkSubmitBtn" class="px-8 py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 text-black font-semibold text-xs uppercase tracking-widest rounded-xl transition-all shadow-xl">
+                    <button type="button" onclick="processFinalPayment()" id="chkSubmitBtn" class="px-8 py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 text-black font-semibold text-xs uppercase tracking-widest rounded-xl transition-all ">
                         Pay by Card
                     </button>
                 </div>
@@ -1256,14 +997,14 @@ header.sticky.top-0.z-40{
     </div>
 
     <!-- Notification Toast Overlay -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-espresso-900 border border-champagne-400 text-white px-5 py-3 rounded-2xl shadow-2xl text-xs font-medium flex items-center space-x-3">
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-espresso-900 border border-champagne-400 text-white px-5 py-3 rounded-2xl  text-xs font-medium flex items-center space-x-3">
         <i class="fas fa-check-circle text-champagne-400 text-base"></i>
         <span id="toastMsg">Action executed.</span>
     </div>
 
     <!-- Footer -->
     <footer class="bg-black border-t border-champagne-500/20 py-16 text-xs text-champagne-300/60 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div>
                 <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 rounded-lg border border-champagne-400/60 bg-espresso-800 flex items-center justify-center font-serif text-lg font-bold gold-gradient-text">Y&I</div>
@@ -1301,14 +1042,14 @@ header.sticky.top-0.z-40{
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-champagne-500/10 text-center text-champagne-300/40">
+        <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16 mt-12 pt-6 border-t border-champagne-500/10 text-center text-champagne-300/40">
             &copy; 2026 YOU AND I CREATION — INTERIOR DESIGN & DECOR. All Rights Reserved.
         </div>
     </footer>
 
     <!-- Secure Admin Login -->
     <div id="adminLoginModal" class="fixed inset-0 z-[80] hidden items-center justify-center bg-black/80 backdrop-blur-sm px-4">
-        <div class="glass-card rounded-3xl p-7 sm:p-9 w-full max-w-md border border-champagne-400/30 shadow-2xl">
+        <div class="glass-card rounded-3xl p-7 sm:p-9 w-full max-w-md border border-champagne-400/30 ">
             <div class="text-center mb-6">
                 <span class="text-[10px] font-bold uppercase tracking-[0.3em] gold-gradient-text">Private Access</span>
                 <h3 class="font-serif text-3xl font-bold text-white mt-1">Admin Login</h3>
@@ -1423,7 +1164,7 @@ header.sticky.top-0.z-40{
                 document.getElementById('adminNavBadge').classList.remove('hidden');
                 document.getElementById('adminNavBadge').classList.add('flex');
                 document.getElementById('adminNavBadge').style.display='flex';
-                document.getElementById('appModeText').innerText='Switch to Customer App';
+                (document.getElementById('appModeText')||{}).innerText='Switch to Customer App';
                 renderAdminOrdersTable(); renderAdminProducts(); renderAdminProjects(); loadProjectsFromServer(); loadAdminStats();
             } else {
                 appState.mode='customer';
@@ -1435,7 +1176,7 @@ header.sticky.top-0.z-40{
                 document.getElementById('adminNavBadge').classList.remove('flex');
                 document.getElementById('adminNavBadge').style.display='none';
                 document.getElementById('customerNav').classList.remove('hidden');
-                document.getElementById('appModeText').innerText='Switch to Admin Portal';
+                (document.getElementById('appModeText')||{}).innerText='Switch to Admin Portal';
             }
         }
 
@@ -1478,31 +1219,29 @@ header.sticky.top-0.z-40{
 
             appState.products.slice(0, 4).forEach(prod => {
                 grid.innerHTML += `
-                    <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 group">
-                        <div class="relative h-72 sm:h-80 overflow-hidden bg-espresso-900/40">
-                            <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-contain bg-espresso-900/30 p-1 sm:p-2 group-hover:scale-[1.02] transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-black/80 text-champagne-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-champagne-500/30">${prod.stock}</span>
+                    <article class="product-card glass-card rounded-2xl overflow-hidden flex flex-col group">
+                        <div class="product-media relative overflow-hidden cursor-pointer" onclick="openProductDetail('${prod.id}')">
+                            <img src="${prod.image}" alt="${prod.name}" loading="lazy" class="absolute inset-0 w-full h-full object-contain p-3">
+                            <span class="product-stock absolute top-3 right-3">${prod.stock}</span>
                         </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
-                            <div>
-                                <h3 class="product-title font-serif text-lg font-bold text-white transition-colors">${prod.name}</h3>
-                                <p class="product-description text-sm sm:text-base text-champagne-100/90 mt-2 leading-6 line-clamp-4">${prod.description}</p>
-                            </div>
-                            <div class="flex items-center justify-between pt-3 border-t border-champagne-500/10">
+                        <div class="p-5 flex flex-col flex-1 gap-2">
+                            <h3 class="product-title font-serif text-white">${prod.name}</h3>
+                            <p class="product-description">${prod.description}</p>
+                            <div class="mt-auto pt-4 border-t border-champagne-500/10 space-y-3">
                                 <div>
-                                    <span class="product-price font-serif text-xl sm:text-2xl font-bold gold-gradient-text block">${formatPrice(prod.priceNGN)}</span>
-                                    <span class="product-unit text-[10px] uppercase tracking-wider text-champagne-200/70">Per piece / item</span>
+                                    <span class="product-price font-serif block">${formatPrice(prod.priceNGN)}</span>
+                                    <span class="product-unit">Per piece / item</span>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <button onclick="addToCart('${prod.id}', 1)" class="w-8 h-8 rounded-lg bg-espresso-900 border border-champagne-500/30 text-champagne-300 hover:text-white" aria-label="Add one piece">+</button>
-                                    <button onclick="addToCart('${prod.id}', 1)" class="px-3.5 py-2 rounded-xl bg-champagne-500/10 hover:bg-champagne-500 hover:text-black border border-champagne-500/30 text-champagne-400 text-xs font-semibold transition-all flex items-center space-x-1.5">
+                                    <button onclick="addToCart('${prod.id}', 1)" class="icon-btn shrink-0" aria-label="Add one piece">+</button>
+                                    <button onclick="addToCart('${prod.id}', 1)" class="btn-outline flex-1 min-w-0 inline-flex items-center justify-center gap-2 whitespace-nowrap">
                                         <i class="fas fa-cart-plus text-xs"></i>
                                         <span>Add 1</span>
                                     </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 `;
             });
         }
@@ -1533,42 +1272,38 @@ header.sticky.top-0.z-40{
 
             filtered.forEach(prod => {
                 grid.innerHTML += `
-                    <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 group">
-                        <div class="relative h-80 sm:h-96 overflow-hidden cursor-pointer bg-espresso-900/40" onclick="openProductDetail('${prod.id}')">
-                            <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-contain bg-espresso-900/30 p-1 sm:p-2 group-hover:scale-[1.02] transition-transform duration-500">
-                            <span class="absolute top-3 right-3 bg-black/80 text-champagne-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-champagne-500/30">${prod.stock}</span>
+                    <article class="product-card glass-card rounded-2xl overflow-hidden flex flex-col group">
+                        <div class="product-media relative overflow-hidden cursor-pointer" onclick="openProductDetail('${prod.id}')">
+                            <img src="${prod.image}" alt="${prod.name}" loading="lazy" class="absolute inset-0 w-full h-full object-contain p-3">
+                            <span class="product-stock absolute top-3 right-3">${prod.stock}</span>
                         </div>
-                        <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
-                            <div>
-                                <h3 onclick="openProductDetail('${prod.id}')" class="product-title font-serif text-lg font-bold text-white transition-colors cursor-pointer">${prod.name}</h3>
-                                <p class="product-description text-sm sm:text-base text-champagne-100/90 mt-2 leading-6 line-clamp-3">${prod.description}</p>
-                                <button type="button" onclick="openProductDetail('${prod.id}')" class="product-learn-more mt-2 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-champagne-400 hover:text-white transition-colors">
-                                    <span>Learn More</span><span aria-hidden="true">→</span>
-                                </button>
-                            </div>
-                            <div class="flex items-center justify-between pt-3 border-t border-champagne-500/10">
-                                <span class="product-price font-serif text-xl sm:text-2xl font-bold gold-gradient-text">${formatPrice(prod.priceNGN)}</span>
-                                <div class="flex flex-col gap-3 pt-2">
-                                    <div class="flex items-center justify-between rounded-xl border border-champagne-500/30 bg-espresso-900 p-2.5">
-                                        <span class="text-[10px] uppercase tracking-wider text-champagne-300/70 font-bold">Pieces</span>
-                                        <div class="flex items-center gap-2">
-                                            <button onclick="changeProductQty('${prod.id}', -1)" class="w-9 h-9 rounded-lg border border-champagne-500/30 text-champagne-300 hover:text-white hover:border-champagne-400">−</button>
-                                            <span id="prodQty-${prod.id}" class="w-7 text-center text-sm font-bold text-white">${productQtySelections[prod.id] || 1}</span>
-                                            <button onclick="changeProductQty('${prod.id}', 1)" class="w-9 h-9 rounded-lg border border-champagne-500/30 text-champagne-300 hover:text-white hover:border-champagne-400">+</button>
-                                        </div>
+                        <div class="p-5 flex flex-col flex-1 gap-2">
+                            <h3 onclick="openProductDetail('${prod.id}')" class="product-title font-serif text-white cursor-pointer">${prod.name}</h3>
+                            <p class="product-description">${prod.description}</p>
+                            <button type="button" onclick="openProductDetail('${prod.id}')" class="product-learn-more self-start inline-flex items-center gap-1.5">
+                                <span>Learn More</span><span aria-hidden="true">→</span>
+                            </button>
+                            <div class="mt-auto pt-4 border-t border-champagne-500/10 space-y-3">
+                                <span class="product-price font-serif block">${formatPrice(prod.priceNGN)}</span>
+                                <div class="qty-row flex items-center justify-between gap-3">
+                                    <span class="qty-label">Pieces</span>
+                                    <div class="flex items-center gap-1.5">
+                                        <button onclick="changeProductQty('${prod.id}', -1)" class="icon-btn" aria-label="Decrease pieces">−</button>
+                                        <span id="prodQty-${prod.id}" class="w-8 text-center text-sm font-semibold text-white">${productQtySelections[prod.id] || 1}</span>
+                                        <button onclick="changeProductQty('${prod.id}', 1)" class="icon-btn" aria-label="Increase pieces">+</button>
                                     </div>
-                                    <div class="flex space-x-2">
-                                        <button onclick="openProductDetail('${prod.id}')" class="p-2 rounded-xl bg-espresso-900 border border-champagne-500/30 text-champagne-300 hover:text-white text-xs">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                        <button onclick="addToCart('${prod.id}', productQtySelections['${prod.id}'] || 1)" class="flex-1 px-3.5 py-2 rounded-xl bg-champagne-500/20 hover:bg-champagne-500 hover:text-black border border-champagne-400/40 text-champagne-400 text-xs font-semibold transition-all">
-                                            Add to Cart
-                                        </button>
-                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openProductDetail('${prod.id}')" class="icon-btn shrink-0" aria-label="View details">
+                                        <i class="fas fa-eye text-xs"></i>
+                                    </button>
+                                    <button onclick="addToCart('${prod.id}', productQtySelections['${prod.id}'] || 1)" class="btn-gold flex-1 min-w-0 whitespace-nowrap">
+                                        Add to Cart
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 `;
             });
         }
@@ -1747,7 +1482,7 @@ header.sticky.top-0.z-40{
                         </ul>
                     </div>
                     <div class="pt-4 border-t border-champagne-500/20">
-                        <button onclick="window.open('https://wa.me/2347047751718?text=${message}', '_blank')" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg">
+                        <button onclick="window.open('https://wa.me/2347047751718?text=${message}', '_blank')" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-black font-semibold text-xs uppercase tracking-widest rounded-xl transition-all ">
                             Request This Service
                         </button>
                     </div>
@@ -1791,7 +1526,7 @@ header.sticky.top-0.z-40{
                         <button onclick="addToCart('${prod.id}'); closeProductDetailModal();" class="flex-1 py-3 bg-champagne-500/20 hover:bg-champagne-500 hover:text-black border border-champagne-400 text-champagne-400 font-bold text-xs uppercase tracking-wider rounded-xl transition-all">
                             Add To Cart
                         </button>
-                        <button onclick="addToCart('${prod.id}'); closeProductDetailModal(); openCheckoutModal();" class="flex-1 py-3 bg-gradient-to-r from-champagne-500 to-champagne-600 text-black font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-lg">
+                        <button onclick="addToCart('${prod.id}'); closeProductDetailModal(); openCheckoutModal();" class="flex-1 py-3 bg-gradient-to-r from-champagne-500 to-champagne-600 text-black font-bold text-xs uppercase tracking-wider rounded-xl transition-all ">
                             Buy Now
                         </button>
                     </div>
@@ -2566,166 +2301,8 @@ header.sticky.top-0.z-40{
             handleFlutterwaveCallback();
         };
     </script>
-<script id="home-background-autoplay-fix">
-(function(){
-  var video;
-  var retryTimer;
-  function startHomeBackgroundVideo(){
-    video=video||document.getElementById('homeBackgroundVideo');
-    if(!video) return;
-    // Set every autoplay-related property before attempting playback.
-    video.muted=true;
-    video.defaultMuted=true;
-    video.volume=0;
-    video.autoplay=true;
-    video.playsInline=true;
-    video.setAttribute('muted','');
-    video.setAttribute('autoplay','');
-    video.setAttribute('playsinline','');
-    video.setAttribute('webkit-playsinline','');
-    video.setAttribute('disablepictureinpicture','');
-    video.setAttribute('disableremoteplayback','');
-    var playNow=function(){
-      if(!video || !video.paused) return;
-      try {
-        var attempt=video.play();
-        if(attempt && typeof attempt.catch==='function') attempt.catch(function(){});
-      } catch(e) {}
-    };
-    playNow();
-    [100,300,700,1200,2000].forEach(function(ms){ setTimeout(playNow,ms); });
-    clearInterval(retryTimer);
-    retryTimer=setInterval(function(){
-      if(!video || !document.hidden && !video.paused) { clearInterval(retryTimer); return; }
-      playNow();
-    },3000);
-  }
-  function init(){
-    video=document.getElementById('homeBackgroundVideo');
-    if(!video) return;
-    video.muted=true; video.defaultMuted=true; video.volume=0;
-    ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(evt){
-      video.addEventListener(evt,startHomeBackgroundVideo,{passive:true});
-    });
-    startHomeBackgroundVideo();
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
-  else init();
-  window.addEventListener('pageshow',startHomeBackgroundVideo);
-  document.addEventListener('visibilitychange',function(){ if(!document.hidden) startHomeBackgroundVideo(); });
-})();
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="assets/site.js"></script>
 </body>
 </html>
-<style id="requested-text-readability-v6">
-/* Requested readability update: preserve layout/design, improve contrast and size. */
-
-/* Hero: all text white except the two CTA buttons. */
-#tab-home > section:first-child h1,
-#tab-home > section:first-child h1 span,
-#tab-home > section:first-child p{
-  color:#FFFFFF !important;
-  -webkit-text-fill-color:#FFFFFF !important;
-  text-shadow:0 2px 8px rgba(0,0,0,.72) !important;
-}
-#tab-home > section:first-child h1{
-  font-size:clamp(2.25rem,7vw,4.5rem) !important;
-  line-height:1.08 !important;
-}
-#tab-home > section:first-child h1 > span:first-child{
-  font-size:clamp(1.45rem,4.5vw,3rem) !important;
-}
-#tab-home > section:first-child p{
-  font-size:clamp(1rem,3.2vw,1.25rem) !important;
-  line-height:1.75 !important;
-}
-#tab-home > section:first-child button:first-child{
-  color:#000000 !important;
-  -webkit-text-fill-color:#000000 !important;
-}
-#tab-home > section:first-child button:last-child{
-  color:#F7E9CE !important;
-  -webkit-text-fill-color:#F7E9CE !important;
-}
-
-/* Signature Services: white headings/body/links, with larger descriptions. */
-#tab-home .glass-card h3,
-#tab-home .glass-card p,
-#tab-home .glass-card button,
-#tab-home .glass-card button span{
-  color:#FFFFFF !important;
-  -webkit-text-fill-color:#FFFFFF !important;
-  opacity:1 !important;
-  text-shadow:0 2px 6px rgba(0,0,0,.72) !important;
-}
-#tab-home .glass-card h3{
-  font-size:clamp(1.35rem,4vw,1.7rem) !important;
-  line-height:1.25 !important;
-}
-#tab-home .glass-card p{
-  font-size:clamp(1.05rem,3.2vw,1.2rem) !important;
-  line-height:1.75 !important;
-}
-#tab-home .glass-card button{
-  font-size:.9rem !important;
-}
-
-/* Interactive portfolio: all copy white except the Explore All Projects CTA. */
-#tab-home .glass-card.rounded-3xl span,
-#tab-home .glass-card.rounded-3xl h2,
-#tab-home .glass-card.rounded-3xl p{
-  color:#FFFFFF !important;
-  -webkit-text-fill-color:#FFFFFF !important;
-  opacity:1 !important;
-  text-shadow:0 2px 7px rgba(0,0,0,.78) !important;
-}
-#tab-home .glass-card.rounded-3xl span{
-  font-size:clamp(.9rem,2.8vw,1.05rem) !important;
-}
-#tab-home .glass-card.rounded-3xl h2{
-  font-size:clamp(2rem,6vw,3rem) !important;
-  line-height:1.15 !important;
-}
-#tab-home .glass-card.rounded-3xl p{
-  font-size:clamp(1.05rem,3.2vw,1.2rem) !important;
-  line-height:1.75 !important;
-}
-#tab-home .glass-card.rounded-3xl button,
-#tab-home .glass-card.rounded-3xl button span{
-  color:#E5C158 !important;
-  -webkit-text-fill-color:#E5C158 !important;
-  text-shadow:none !important;
-}
-
-/* Product cards: keep descriptions and prices very clear before Add to Cart. */
-#homeFeaturedProductsGrid .product-description,
-#productsCatalogGrid .product-description{
-  font-size:1.12rem !important;
-  line-height:1.8 !important;
-  color:#FFFFFF !important;
-  -webkit-text-fill-color:#FFFFFF !important;
-  font-weight:500 !important;
-  opacity:1 !important;
-  text-shadow:0 2px 5px rgba(0,0,0,.78) !important;
-}
-#homeFeaturedProductsGrid .product-price,
-#productsCatalogGrid .product-price{
-  font-size:2rem !important;
-  line-height:1.15 !important;
-  color:#F4D36A !important;
-  -webkit-text-fill-color:#F4D36A !important;
-  font-weight:700 !important;
-  text-shadow:0 2px 5px rgba(0,0,0,.8) !important;
-}
-@media(max-width:640px){
-  #homeFeaturedProductsGrid .product-description,
-  #productsCatalogGrid .product-description{
-    font-size:1.12rem !important;
-    line-height:1.8 !important;
-  }
-  #homeFeaturedProductsGrid .product-price,
-  #productsCatalogGrid .product-price{
-    font-size:2rem !important;
-  }
-}
-</style>
