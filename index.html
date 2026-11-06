@@ -84,6 +84,17 @@
 #adminProductsList .admin-product-card{min-width:0;}
 </style>
     <link rel="stylesheet" href="assets/redesign.css?v=3">
+
+
+    <!-- You & I Creation installable web app (PWA) -->
+    <meta name="theme-color" content="#100B09">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="You & I">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+
 </head>
 <body class="bg-espresso-800 text-champagne-200 min-h-screen flex flex-col selection:bg-champagne-500 selection:text-black">
 
@@ -2270,5 +2281,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="assets/site.js?v=3"></script>
+
+<script>
+  // Register the service worker so the site can be installed as a web app.
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/service-worker.js").catch((error) => {
+        console.warn("PWA service worker registration failed:", error);
+      });
+    });
+  }
+</script>
+
 </body>
 </html>
